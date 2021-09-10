@@ -17,3 +17,15 @@ class DashboardView(View):
 class AboutUsView(View):
 	def get(self, request):					
 		return render(request,'aboutus.html')
+
+class SignInView(View):
+	def get(self, request):					
+		return render(request,'signin.html')
+
+class SignUpView(View):
+	def get(self, request):					
+		return render(request,'signup.html')
+
+class ContactUsView(View):
+	def get(self, request):					
+		return render(request,'contactus.html')

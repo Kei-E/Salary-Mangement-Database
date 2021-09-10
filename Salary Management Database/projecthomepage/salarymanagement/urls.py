@@ -6,8 +6,11 @@ app_name = 'salarymanagement'
 
 urlpatterns = [ 
     #URLs for student app
-    path('home', views.HomeView.as_view(), name="home_view"),
+    path('aboutus', views.AboutUsView.as_view(), name="about_us_view"),
+    path('contactus', views.ContactUsView.as_view(), name="contact_us_view"),
     path('dashboard', views.DashboardView.as_view(), name="dashboard_view"),
     path('feature', views.FeatureView.as_view(), name="feature_view"),
-    path('aboutus', views.AboutUsView.as_view(), name="about_us_view"),
+    path('home', views.HomeView.as_view(), name="home_view"),
+    path('signin', views.SignInView.as_view(), name="sign_in_view"),
+    path('signup', views.SignUpView.as_view(), name="sign_up_view"),
 ]
