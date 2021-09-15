@@ -18,6 +18,7 @@
         {% load static %}
         <link rel="stylesheet" href="{% static 'css/header.css'%}">
         <link rel="stylesheet" href="{% static 'css/footer.css'%}">
+        <link rel="stylesheet" href="{% static 'css/dashboard.css'%}">
     </head>
 
     <body>
@@ -68,72 +69,110 @@
               </label>
             </div>
           </div>-->
+
+          <div class="row">
+            <!-- Area Chart -->
+            <div class="col-xl-15 col-lg-10">
+                <div class="card shadow mb-10">
+                    <!-- Card Header - Dropdown -->
+                    <div
+                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">DATABASE OVERVIEW</h6>
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                aria-labelledby="dropdownMenuLink">
+
+                             
+
+                                <div class="dropdown-header">Menu:</div>
+                                <a class="dropdown-item" value="employers">Employers</a>
+                                <a class="dropdown-item" value="employees">Employees</a>
+                                <!--<div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something </a>-->
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
           
-            <div class="col-lg-15 col-md-15" id='0'>
-                <div class="card ">
-                  <div class="card-header">
-                    <h4 class="card-title"> EMPLOYEES</h4>
-                  </div>
-                  <div class="card-body">
-                    <div class="table-responsive">
-                      <table class="table tablesorter " id="">
-                        <thead class=" text-primary">
-                          <tr>
-                            <th>ID NUMBER</th>
-                            <th>
-                              FIRSTNAME
-                            </th>
-                            <th>
-                              LASTNAME
-                            </th>
-                            <th class="text-center">
-                              CITY
-                            </th>
-                            <th class="text-center">
-                                AGE
-                              </th>
-                              <th class="text-center">
-                                YEAR HIRED
-                              </th>
-                              <th class="text-center">
-                                HOURS WORKED
-                              </th>
-                              <th class="text-center">
-                                OVERTIME
-                              </th>
-                              <th class="text-center">
-                                HOURS LATE
-                              </th>
-                              <th class="text-center">
-                                DAYS ABSENT
-                              </th>
-                              <th class="text-center">
-                                ACTIONS
-                              </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                            {% for e in employee %}
+          
+            <div class="col-lg-15 col-md-15" >
+                <!-- Card Body -->
+              <div class="card-body">
+                <div class="data" id="employees">
+                  <div class="card ">
+                    <div class="card-header">
+                      <h4 class="card-title"> EMPLOYEES</h4>
+                    </div>
+                    
+                      <div class="table-responsive">
+                        <table class="table tablesorter ">
+                          <thead class=" text-primary">
                             <tr>
-                                <td>{{e.employee_id}}</td>
-                                <td>{{e.firstname}}</td>
-                                <td>{{e.lastname}}</td>
-                                <td class="text-center">{{e.city}}</td>
-                                <td class="text-center">{{e.age}}</td>
-                                <td class="text-center">{{e.contact_num}}</td>
-                                <td class="text-center">{{e.year_hired}}</td>
-                                <td class="text-center">{{e.hours_worked}}</td>
-                                <td class="text-center">{{e.overtime}}</td>
-                                <td class="text-center">{{e.hours_late}}</td>
-                                <td class="text-center">{{e.days_absent}}</td>
+                              <th>ID NUMBER</th>
+                              <th>
+                                FIRSTNAME
+                              </th>
+                              <th>
+                                LASTNAME
+                              </th>
+                              <th class="text-center">
+                                CITY
+                              </th>
+                              <th class="text-center">
+                                  AGE
+                                </th>
+                                <th class="text-center">
+                                  YEAR HIRED
+                                </th>
+                                <th class="text-center">
+                                  HOURS WORKED
+                                </th>
+                                <th class="text-center">
+                                  OVERTIME
+                                </th>
+                                <th class="text-center">
+                                  HOURS LATE
+                                </th>
+                                <th class="text-center">
+                                  DAYS ABSENT
+                                </th>
+                                <th class="text-center">
+                                  ACTIONS
+                                </th>
                             </tr>
-                            {% endfor %}
-                        </tbody>
-                      </table>
+                          </thead>
+
+                          <tbody>
+                              {% for e in employee %}
+                              <tr>
+                                  <td>{{e.employee_id}}</td>
+                                  <td>{{e.firstname}}</td>
+                                  <td>{{e.lastname}}</td>
+                                  <td class="text-center">{{e.city}}</td>
+                                  <td class="text-center">{{e.age}}</td>
+                                  <td class="text-center">{{e.contact_num}}</td>
+                                  <td class="text-center">{{e.year_hired}}</td>
+                                  <td class="text-center">{{e.hours_worked}}</td>
+                                  <td class="text-center">{{e.overtime}}</td>
+                                  <td class="text-center">{{e.hours_late}}</td>
+                                  <td class="text-center">{{e.days_absent}}</td>
+                                  <td class="text-center"></td>
+                              </tr>
+                              {% endfor %}
+                          </tbody>
+                        </table>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
 
               <!--Employees Table-->
               <div class="col-lg-6 col-md-12" id='1'>
@@ -178,8 +217,6 @@
               </div>
         <!--Dashboard's Body Ends Here-->
 
-    </div>
-
         <!--Footer Starts Here-->
         <footer class="footer-16371">
             <div class="container">
@@ -216,7 +253,6 @@
                     <p class="mb-0"><small>&copy; 2021-2022 by Cuevas, Shanesha & Engbino, Kaye from CSIT327 F1-C1</small></p>
                   </div>
       
-      
                 </div>
               </div>
             </div>
@@ -226,5 +262,17 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
+        <!--Dropdown Database Overview-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+          $(document).ready(function(){
+            $("name").on('change', function(){
+              $(".data").hide()
+              $("#" + $(this).val()).fadeIn(700);
+            }).change();
+          });
+        </script>
+
     </body>
 </html>

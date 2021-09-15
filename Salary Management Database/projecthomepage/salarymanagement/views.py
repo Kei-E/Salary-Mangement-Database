@@ -13,7 +13,7 @@ class FeatureView(View):
 
 class DashboardView(View):
 	def get(self, request):	
-		employers = Employer.objects.all()
+		employers = Employer.objects.all()[:3]
 		employees = Employee.objects.all()
 
 		"""
