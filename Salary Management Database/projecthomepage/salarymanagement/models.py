@@ -35,21 +35,3 @@ class Salary(models.Model):
 
     class meta:
         db_table = 'tblSalary'
-
-
-"""
-Employee - employeeID, name, city, age, contact, year hired, hours worked, overtime
-Salary - salaryID, amount
-Attendance - employeeID, hours late, days absent
-
-BUSINESS RULES
-An EMPLOYER can manage one or more SALARY for each EMPLOYEE
-▪ Attributes of EMPLOYER: Employer_ID, Name, City
-✓ An EMPLOYEE only has one EMPLOYER who handles his/her SALARY.
-▪ Attributes of EMPLOYEE: Employee_ID, Name, City, Age, Telephone, Year_Hired,
-Hours_Worked, Overtime
-✓ An EMPLOYEE only has one SALARY
-▪ Attributes of SALARY: Salary_ID, Amount
-✓ Each EMPLOYEE has ATTENDANCE:
-▪ Attributes of ATTENDANCE: Employee_ID, Hours_Late, Days_Absent
-"""
