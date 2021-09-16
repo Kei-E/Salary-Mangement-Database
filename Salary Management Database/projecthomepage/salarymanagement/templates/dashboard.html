@@ -91,6 +91,7 @@
                                 <div class="dropdown-header">Menu:</div>
                                 <a class="dropdown-item" value="employers">Employers</a>
                                 <a class="dropdown-item" value="employees">Employees</a>
+                                <a class="dropdown-item" value="employees">Salary</a>
                                 <!--<div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Something </a>-->
                             </div>
@@ -101,6 +102,45 @@
             </div>
         </div>
           
+        <!--Employees Table-->
+        <div class="col-lg-15 col-md-15" id='1'>
+          <div class="card ">
+            <div class="card-header">
+              <h4 class="card-title"> EMPLOYERS</h4>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table tablesorter " id="">
+                  <thead class=" text-primary">
+                    <tr>
+                      <th>ID</th>
+                      <th>
+                        FIRSTNAME
+                      </th>
+                      <th>
+                        LASTNAME
+                      </th>
+                      <th class="text-center">
+                          ACTIONS
+                        </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      {% for e in employer %}
+                      <tr>
+                          <td>{{e.employer_id}}</td>
+                          <td>{{e.firstname}}</td>
+                          <td>{{e.lastname}}</td>
+                          <td class="text-center"><a href="">UPDATE</a> | <a href="">DELETE</a></td>
+                      </tr>
+                      {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+              <br><button> View </button>
+            </div>
+          </div>
+        </div>
           
             <div class="col-lg-15 col-md-15" >
                 <!-- Card Body -->
@@ -122,27 +162,6 @@
                               <th>
                                 LASTNAME
                               </th>
-                              <th class="text-center">
-                                CITY
-                              </th>
-                              <th class="text-center">
-                                  AGE
-                                </th>
-                                <th class="text-center">
-                                  YEAR HIRED
-                                </th>
-                                <th class="text-center">
-                                  HOURS WORKED
-                                </th>
-                                <th class="text-center">
-                                  OVERTIME
-                                </th>
-                                <th class="text-center">
-                                  HOURS LATE
-                                </th>
-                                <th class="text-center">
-                                  DAYS ABSENT
-                                </th>
                                 <th class="text-center">
                                   ACTIONS
                                 </th>
@@ -155,14 +174,6 @@
                                   <td>{{e.employee_id}}</td>
                                   <td>{{e.firstname}}</td>
                                   <td>{{e.lastname}}</td>
-                                  <td class="text-center">{{e.city}}</td>
-                                  <td class="text-center">{{e.age}}</td>
-                                  <td class="text-center">{{e.contact_num}}</td>
-                                  <td class="text-center">{{e.year_hired}}</td>
-                                  <td class="text-center">{{e.hours_worked}}</td>
-                                  <td class="text-center">{{e.overtime}}</td>
-                                  <td class="text-center">{{e.hours_late}}</td>
-                                  <td class="text-center">{{e.days_absent}}</td>
                                   <td class="text-center"><a href="">UPDATE</a> | <a href="">DELETE</a></td>
                               </tr>
                               {% endfor %}
@@ -170,55 +181,13 @@
                         </table>
                     </div>
                   </div>
+                  <br><button> View </button>
                 </div>
               </div>
             </div>
 
               <!--Employees Table-->
-              <div class="col-lg-6 col-md-12" id='1'>
-                <div class="card ">
-                  <div class="card-header">
-                    <h4 class="card-title"> EMPLOYERS</h4>
-                  </div>
-                  <div class="card-body">
-                    <div class="table-responsive">
-                      <table class="table tablesorter " id="">
-                        <thead class=" text-primary">
-                          <tr>
-                            <th>ID</th>
-                            <th>
-                              FIRSTNAME
-                            </th>
-                            <th>
-                              LASTNAME
-                            </th>
-                            <th class="text-center">
-                              CITY
-                            </th>
-                            <th class="text-center">
-                                ACTIONS
-                              </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                            {% for e in employer %}
-                            <tr>
-                                <td>{{e.employer_id}}</td>
-                                <td>{{e.firstname}}</td>
-                                <td>{{e.lastname}}</td>
-                                <td class="text-center">{{e.city}}</td>
-                                <td class="text-center"><a href="">UPDATE</a> | <a href="">DELETE</a></td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!--Employees Table-->
-              <div class="col-lg-6 col-md-12" id='1'>
+              <div class="col-lg-15 col-md-15" id='1'>
                 <div class="card ">
                   <div class="card-header">
                     <h4 class="card-title"> SALARY</h4>
@@ -252,6 +221,7 @@
                         </tbody>
                       </table>
                     </div>
+                    <br><button> View </button>
                   </div>
                 </div>
               </div>
