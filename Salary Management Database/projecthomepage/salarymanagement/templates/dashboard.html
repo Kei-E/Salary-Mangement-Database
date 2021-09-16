@@ -163,7 +163,7 @@
                                   <td class="text-center">{{e.overtime}}</td>
                                   <td class="text-center">{{e.hours_late}}</td>
                                   <td class="text-center">{{e.days_absent}}</td>
-                                  <td class="text-center"></td>
+                                  <td class="text-center"><a href="">UPDATE</a> | <a href="">DELETE</a></td>
                               </tr>
                               {% endfor %}
                           </tbody>
@@ -207,6 +207,46 @@
                                 <td>{{e.firstname}}</td>
                                 <td>{{e.lastname}}</td>
                                 <td class="text-center">{{e.city}}</td>
+                                <td class="text-center"><a href="">UPDATE</a> | <a href="">DELETE</a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--Employees Table-->
+              <div class="col-lg-6 col-md-12" id='1'>
+                <div class="card ">
+                  <div class="card-header">
+                    <h4 class="card-title"> SALARY</h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table tablesorter " id="">
+                        <thead class=" text-primary">
+                          <tr>
+                            <th>INVOICE</th>
+                            <th>
+                              LASTNAME
+                            </th>
+                            <th class>
+                              AMOUNT
+                            </th>
+                            <th class="text-center">
+                                ACTIONS
+                              </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            {% for s in salary %}
+                            <tr>
+                                <td>{{s.salary_id}}</td>
+                                <td>{{s.employee_id.lastname}}</td>
+                                <td>{{s.amount}}</td>
+                                <td class="text-center"><a href="">UPDATE</a> | <a href="">DELETE</a></td>
                             </tr>
                             {% endfor %}
                         </tbody>

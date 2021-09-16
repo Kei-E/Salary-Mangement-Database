@@ -14,7 +14,8 @@ class FeatureView(View):
 class DashboardView(View):
 	def get(self, request):	
 		employers = Employer.objects.all()[:3]
-		employees = Employee.objects.all()
+		employees = Employee.objects.all()[:3]
+		salaries = Salary.objects.all()[:3]
 
 		"""
 		> pass the view to template
@@ -22,7 +23,8 @@ class DashboardView(View):
 		"""
 		context = {
 			'employer': employers,
-			'employee': employees
+			'employee': employees,
+			'salary': salaries,
 		}
 		return render(request,'dashboard.html', context)
         

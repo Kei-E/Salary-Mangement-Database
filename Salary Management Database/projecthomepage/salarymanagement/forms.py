@@ -10,3 +10,8 @@ class EmployeeForm(forms.ModelForm):
     class Meta:
         models = Employee
         fields = '__all__'
+
+class SalaryForm(forms.ModelForm):
+    class Meta:
+        model = Salary
+        fields = '__all__'
