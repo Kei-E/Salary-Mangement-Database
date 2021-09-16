@@ -1,18 +1,32 @@
 from django.shortcuts import render
 from django.views.generic import View
+from .forms import *
 
 # Create your views here.
 class HomeView(View):
-	def get(self, request):					
+	def get(self, request):			
 		return render(request,'home.html')
 
 class FeatureView(View):
-	def get(self, request):					
+	def get(self, request):		
 		return render(request,'feature.html')
 
 class DashboardView(View):
-	def get(self, request):					
-		return render(request,'dashboard.html')
+	def get(self, request):	
+		employers = Employer.objects.all()[:3]
+		employees = Employee.objects.all()[:3]
+		salaries = Salary.objects.all()[:3]
+
+		"""
+		> pass the view to template
+		> may contain 1++ vars
+		"""
+		context = {
+			'employer': employers,
+			'employee': employees,
+			'salary': salaries,
+		}
+		return render(request,'dashboard.html', context)
         
 class AboutUsView(View):
 	def get(self, request):					
