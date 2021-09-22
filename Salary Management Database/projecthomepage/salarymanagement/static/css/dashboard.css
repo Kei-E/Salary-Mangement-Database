@@ -4,12 +4,11 @@
 
 select{
     width: 100%;
-    padding: 15px;
+    padding: 5px;
     font-size: 16px;
     font-weight: 700;
     border: none;
     border-radius: 8px;
     border: 2px solid black;
-    box-shadow: 0 15px 15px black;
     appearance: none;
 }

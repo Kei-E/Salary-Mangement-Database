@@ -41,3 +41,15 @@ class SignUpView(View):
 class ContactUsView(View):
 	def get(self, request):					
 		return render(request,'contactus.html')
+
+class AddEmployerView(View):
+	def get(self, request):
+		return render(request, 'addemployer.html')
+
+class AddEmployeeView(View):
+	def get(self, request):
+		return render(request, 'addemployee.html')
+
+class AddSalaryView(View):
+	def get(self, request):
+		return render(request, 'addsalary.html')
