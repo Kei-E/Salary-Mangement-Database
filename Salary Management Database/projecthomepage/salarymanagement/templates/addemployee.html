@@ -55,41 +55,39 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Add Employee</h1>
                                 </div>
-                                <form class="user">
+                                <form class="user" method="post" action="">
+                                  {% csrf_token %}
                                     <div class="form-group row">
                                       <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="EmployerID"
-                                            placeholder="Employer ID">
+                                        <input type="text" class="form-control form-control-user" id="FirstName" name="employer_id"
+                                                placeholder="Employer ID">
                                       </div>
                                         <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <input type="text" class="form-control form-control-user" id="FirstName"
+                                            <input type="text" class="form-control form-control-user" id="FirstName" name="firstname"
                                                 placeholder="First Name">
                                         </div>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control form-control-user" id="LastName"
+                                            <input type="text" class="form-control form-control-user" id="LastName" name="lastname"
                                                 placeholder="Last Name">
                                         </div>
                                     
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="email" class="form-control form-control-user" id="City"
+                                        <input type="text" class="form-control form-control-user" id="City" name="city"
                                             placeholder="City">
                                     </div>
                                     <div class="col-sm-6">
-                                      <input type="text" class="form-control form-control-user" id="Age"
+                                      <input type="text" class="form-control form-control-user" id="Age" name="age"
                                           placeholder="age">
                                   </div>
                                   <div class="col-sm-6">
-                                    <input type="text" class="form-control form-control-user" id="Contact"
+                                    <input type="text" class="form-control form-control-user" id="Contact" name="contact"
                                         placeholder="Contact Number">
                                 </div>
-                                <div class="col-sm-6">
-                                  <input type="text" class="form-control form-control-user" id="YearHired"
-                                      placeholder="Year Hired">
-                              </div>
                             </div>
-                                    <a href="login.html" class="btn btn-primary btn-user btn-block">
+                                    <button href="dashboard" class="btn btn-primary btn-user btn-block">
                                         Add
-                                    </a>       
+                                    </button>       
+                                    </form>
                             </div>
                           
                         </div>
