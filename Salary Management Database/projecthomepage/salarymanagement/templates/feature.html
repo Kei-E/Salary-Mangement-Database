@@ -16,32 +16,33 @@
 
         <!--CSS-->
         {% load static %}
-        <link rel="stylesheet" href="{% static 'css/header.css'%}">
+        <link rel="stylesheet" href="{% static 'css/home.css'%}">
         <link rel="stylesheet" href="{% static 'css/footer.css'%}">
     </head>
 
     <body>
-        <div>
-            <!--Header starts here-->
-            <div class="header-blue">
-              <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
-                  <div class="container"><a class="navbar-brand" href="home">Salary Man</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                      <div class="collapse navbar-collapse"
-                          id="navcol-1">
-                          <ul class="nav navbar-nav">
-                              <li class="nav-item" role="presentation"><a class="nav-link active" href="home">Home</a></li>
-                              <li class="nav-item" role="presentation"><a class="nav-link active" href="feature">Feature</a></li>
-                              <li class="nav-item" role="presentation"><a class="nav-link active" href="aboutus">About Us</a></li>
-                              <li class="nav-item" role="presentation"><a class="nav-link active" href="contactus">Contact Us</a></li>
-                          </ul>
-                          <form class="form-inline mr-auto" target="_self">
-                              <div class="form-group"><label for="search-field"><i class="fa fa-search"></i></label><input class="form-control search-field" type="search" name="search" id="search-field"></div>
-                          </form><span class="navbar-text"> <a href="signin" class="login">Sign In</a></span><a class="btn btn-light action-button" role="button" href="signup">Sign Up</a></div>
-                  </div>
-              </nav>
-          </div>
-          <!--Header Ends Here-->
+        <!--Header starts here-->
+      <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#page-top">SALARY MAN</a>
+            <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="home">Home</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="feature">Feature</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="aboutus">About Us</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="contactus">Contact Us</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="signin">Sign In</a></li>
+                </ul>
+                
+                <a class="btn btn-light action-button" role="button" href="signup">Sign Up</a>
+            </div>
         </div>
+    </nav>  
+    <!--Header Ends Here-->
 
         <!--Feature Starts Here-->
         <!--Better if makakita ta'g other template here-->
@@ -65,47 +66,48 @@
         <!--Feature Ends Here-->
 
         <!--Footer Starts Here-->
-        <footer class="footer-16371">
+        <footer class="footer text-center">
           <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-md-9 text-center">
-                <div class="footer-site-logo mb-4">
-                  <a href="#">Salary Management Database</a>
-                </div>
-                <ul class="list-unstyled nav-links mb-5">
-                  <li><a href="aboutus.html">About Us</a></li>
-                  <li><a href="feature.html">Features</a></li>
-                  <!--Pwedi ni nato e remove ang remaining or e change into something else Start-->
-                  <li><a href="#">Careers</a></li>
-                  <li><a href="#">FAQ</a></li>
-                  <li><a href="#">Legal</a></li>
-                  <li><a href="#">Contact Us</a></li>
-                  <!--End-->
-                </ul>
-    
-                <div class="social mb-4">
-                  <h3>Keep track of your salary with Salary Man!</h3>
-                  <ul class="list-unstyled">
-                      <!--Pwedi pud nimo e add ang icons here since wala man sila ni recognize or e remove nalang nimo-->
-                    <li class="in"><a href="#"><span class="icon-instagram"></span></a></li>
-                    <li class="fb"><a href="#"><span class="icon-facebook"></span></a></li>
-                    <li class="tw"><a href="#"><span class="icon-twitter"></span></a></li>
-                    <li class="pin"><a href="#"><span class="icon-pinterest"></span></a></li>
-                    <li class="dr"><a href="#"><span class="icon-dribbble"></span></a></li>
-                    <!--End-->
-                  </ul>
-                </div>
-    
-                <div class="copyright">
-                  <p class="mb-0"><small>&copy; 2021-2022 by Cuevas, Shanesha & Engbino, Kaye from CSIT327 F1-C1</small></p>
-                </div>
-    
-    
+              <div class="row">
+                  <!-- Footer Location-->
+                  <div class="col-lg-4 mb-5 mb-lg-0">
+                      <h4 class="text-uppercase mb-4">CSIT327 F1-C1</h4>
+                        <p class="mb-0"><small>&copy; 2021-2022 by Cuevas, Shanesha & Engbino, Kaye</small></p>
+                  </div>
+                  <!-- Footer Social Icons-->
+                  <div class="col-lg-4 mb-5 mb-lg-0">
+                      <h4 class="text-uppercase mb-4">Around the Web</h4>
+                      <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
+                      <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
+                      <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
+                      <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
+                  </div>
+                  <!-- Footer About Text-->
+                  <div class="col-lg-4">
+                      <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                      <p class="lead mb-0">
+                          Freelance is a free to use, MIT licensed Bootstrap theme created by
+                          <a href="http://startbootstrap.com">Start Bootstrap</a>
+                          .
+                      </p>
+                  </div>
               </div>
-            </div>
           </div>
-        </footer>
-      <!--Footer Starts Here-->
+      </footer>
+        <!--Footer Ends Here-->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Salary Management Database</title>
+
+        <!--Header-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+
+        <!--     Fonts and icons     -->
+        <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+        <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+        <!--CSS-->
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/header.css'%}">
+        <link rel="stylesheet" href="{% static 'css/footer.css'%}">
+    </head>
+
+    <body>
+        <div>
+            <!--Header starts here-->
+            <div class="header-blue">
+              <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
+                  <div class="container"><a class="navbar-brand" href="home">Salary Man</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                      <div class="collapse navbar-collapse"
+                          id="navcol-1">
+                          <ul class="nav navbar-nav">
+                              <li class="nav-item" role="presentation"><a class="nav-link active" href="home">Home</a></li>
+                              <li class="nav-item" role="presentation"><a class="nav-link active" href="feature">Feature</a></li>
+                              <li class="nav-item" role="presentation"><a class="nav-link active" href="aboutus">About Us</a></li>
+                              <li class="nav-item" role="presentation"><a class="nav-link active" href="contactus">Contact Us</a></li>
+                          </ul>
+                          <form class="form-inline mr-auto" target="_self">
+                              <div class="form-group"><label for="search-field"><i class="fa fa-search"></i></label><input class="form-control search-field" type="search" name="search" id="search-field"></div>
+                          </form><span class="navbar-text"> <a href="signin" class="login">Sign In</a></span><a class="btn btn-light action-button" role="button" href="signup">Sign Up</a></div>
+                  </div>
+              </nav>
+          </div>
+          <!--Header Ends Here-->
+        </div>
+
+        <!--Add Record Starts Here-->
+        <div class="container">
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        <div class="col-lg-5 d-none d-lg-block"></div>
+                        <div class="col-lg-7">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Add Salary</h1>
+                                </div>
+                                <form class="user">
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <input type="text" class="form-control form-control-user" id="EmployerID"
+                                                placeholder="Employer ID">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control form-control-user" id="Salary"
+                                                placeholder="Salary">
+                                        </div>
+                                    </div>
+                                    <a href="login.html" class="btn btn-primary btn-user btn-block">
+                                        Add
+                                    </a>
+                                    <hr>
+                                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+        <!--Add Record Ends Here-->
+
+        <!--Footer Starts Here-->
+        <footer class="footer-16371">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-md-9 text-center">
+                <div class="footer-site-logo mb-4">
+                  <a href="#">Salary Management Database</a>
+                </div>
+                <ul class="list-unstyled nav-links mb-5">
+                  <li><a href="aboutus.html">About Us</a></li>
+                  <li><a href="feature.html">Features</a></li>
+                  <!--Pwedi ni nato e remove ang remaining or e change into something else Start-->
+                  <li><a href="#">Careers</a></li>
+                  <li><a href="#">FAQ</a></li>
+                  <li><a href="#">Legal</a></li>
+                  <li><a href="#">Contact Us</a></li>
+                  <!--End-->
+                </ul>
+    
+                <div class="social mb-4">
+                  <h3>Keep track of your salary with Salary Man!</h3>
+                  <ul class="list-unstyled">
+                      <!--Pwedi pud nimo e add ang icons here since wala man sila ni recognize or e remove nalang nimo-->
+                    <li class="in"><a href="#"><span class="icon-instagram"></span></a></li>
+                    <li class="fb"><a href="#"><span class="icon-facebook"></span></a></li>
+                    <li class="tw"><a href="#"><span class="icon-twitter"></span></a></li>
+                    <li class="pin"><a href="#"><span class="icon-pinterest"></span></a></li>
+                    <li class="dr"><a href="#"><span class="icon-dribbble"></span></a></li>
+                    <!--End-->
+                  </ul>
+                </div>
+    
+                <div class="copyright">
+                  <p class="mb-0"><small>&copy; 2021-2022 by Cuevas, Shanesha & Engbino, Kaye from CSIT327 F1-C1</small></p>
+                </div>
+    
+    
+              </div>
+            </div>
+          </div>
+        </footer>
+      <!--Footer Starts Here-->
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

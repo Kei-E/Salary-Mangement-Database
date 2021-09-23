@@ -19,14 +19,16 @@ class Employee(models.Model):
     city = models.CharField(max_length=20)
     age = models.IntegerField()
     contact_num = models.CharField(max_length=20)
-    year_hired = models.DateField()
+
+    class meta:
+        db_table = 'tblEmployee'
+
+class EmployeeAttendace(models.Model):
+    employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE)
     hours_worked = models.IntegerField()
     overtime = models.IntegerField()
     hours_late = models.IntegerField()
     days_absent = models.IntegerField()
-
-    class meta:
-        db_table = 'tblEmployee'
 
 class Salary(models.Model):
     salary_id = models.AutoField(primary_key=True)
