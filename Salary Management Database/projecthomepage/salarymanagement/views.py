@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.http.response import HttpResponse
+from django.shortcuts import redirect, render
 from django.views.generic import View
 from .forms import *
 
@@ -13,7 +14,7 @@ class FeatureView(View):
 
 class DashboardView(View):
 	def get(self, request):	
-		employers = Employer.objects.all()[:3]
+		employers = Employer.objects.all()
 		employees = Employee.objects.all()
 
 		"""
@@ -45,6 +46,22 @@ class ContactUsView(View):
 class AddEmployerView(View):
 	def get(self, request):
 		return render(request, 'addemployer.html')
+
+	def post(self, request):
+		form = EmployerForm(request.POST)
+
+		if form.is_valid():
+			fname = request.POST.get("firstname")
+			lname = request.POST.get("lastname")
+			city = request.POST.get("city")
+			form = Employer(firstname = fname, lastname = lname, city = city)
+			form.save()
+
+			return redirect('salarymanagement:dashboard_view')
+		else:
+			return HttpResponse('not valid')
+			
+		
 
 class AddEmployeeView(View):
 	def get(self, request):
