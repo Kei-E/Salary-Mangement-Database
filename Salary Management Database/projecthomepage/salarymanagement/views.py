@@ -16,6 +16,7 @@ class DashboardView(View):
 	def get(self, request):	
 		employers = Employer.objects.all()
 		employees = Employee.objects.all()
+		city = City.objects.all()
 
 		"""
 		> pass the view to template
@@ -23,7 +24,8 @@ class DashboardView(View):
 		"""
 		context = {
 			'employer': employers,
-			'employee': employees
+			'employee': employees,
+			'city': city
 		}
 		return render(request,'dashboard.html', context)
         
@@ -45,28 +47,28 @@ class ContactUsView(View):
 
 class AddEmployerView(View):
 	def get(self, request):
-		return render(request, 'addemployer.html')
+		return render(request, 'addemployer.html', {'city' : City.objects.all()})
 
 	def post(self, request):
 		form = EmployerForm(request.POST)
+	
+		fname = request.POST.get("firstname")
+		lname = request.POST.get("lastname")
+		city = request.POST.get("city")
 
-		if form.is_valid():
-			fname = request.POST.get("firstname")
-			lname = request.POST.get("lastname")
-			city = request.POST.get("city")
-			form = Employer(firstname = fname, lastname = lname, city = city)
-			form.save()
+		form = Employer(firstname = fname, lastname = lname, city_id_id = city)
+		form.save()
 
-			return redirect('salarymanagement:dashboard_view')
-		else:
-			return HttpResponse('not valid')
+		return redirect('salarymanagement:dashboard_view')
+	
+		#	return HttpResponse('not valid')
 
 class AddEmployeeView(View):
 	def get(self, request):
 		return render(request, 'addemployee.html')
 
 	def post(self, request):
-		form = EmployerForm(request.POST)
+		form = EmployeeForm(request.POST)
 
 		if form.is_valid():
 			fname = request.POST.get("firstname")

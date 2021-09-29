@@ -671,8 +671,9 @@ progress {
   display: flex;
   flex-wrap: wrap;
   margin-top: calc(var(--bs-gutter-y) * -1);
-  margin-right: calc(var(--bs-gutter-x) * -.5);
-  margin-left: calc(var(--bs-gutter-x) * -.5);
+  margin-right: 2%;
+  margin-left: 2%;
+  
 }
 .row > * {
   flex-shrink: 0;
@@ -2184,7 +2185,7 @@ progress {
 
 .form-control {
   display: block;
-  width: 100%;
+  width: 95%;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   font-weight: 400;
@@ -2192,12 +2193,12 @@ progress {
   color: #212529;
   background-color: #fff;
   background-clip: padding-box;
-  border: 0.125rem solid #ced4da;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
   border-radius: 0.5rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  margin-bottom: 5%;
 }
 @media (prefers-reduced-motion: reduce) {
   .form-control {
