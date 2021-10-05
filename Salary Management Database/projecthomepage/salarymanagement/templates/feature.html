@@ -18,9 +18,53 @@
         {% load static %}
         <link rel="stylesheet" href="{% static 'css/home.css'%}">
         <link rel="stylesheet" href="{% static 'css/footer.css'%}">
+        <link rel="stylesheet" href="{% static 'css/features.css'%}">
     </head>
 
     <body>
+    <!-- ======= Features Section ======= -->
+    <header class="masthead bg-primary text-white text-left">
+        <section id="features" class="features">
+            <div class="container">
+    
+            <div class="section-title" data-aos="fade-up">
+                <h2>Features</h2>
+                <p>Check The Features</p>
+            </div>
+    
+            <div class="row" data-aos="fade-left">
+                <div class="col-lg-3 col-md-4">
+                <div class="icon-box" data-aos="zoom-in" data-aos-delay="50">
+                    <span class="iconify" data-icon="ic:outline-manage-accounts" style="color: #ffbb2c" data-width="40" data-height="40"></span>
+                    <h3><a href="">Keep Track of Salary</a></h3>
+                </div>
+                </div>
+                <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+                <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
+                    <span class="iconify" data-icon="ic:outline-calculate" data-width="40" data-height="40" style="color: #5578ff;"></span>
+                    <h3><a href="">Automatic Salary Computation</a></h3>
+                </div>
+                </div>
+                <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+                <div class="icon-box" data-aos="zoom-in" data-aos-delay="150">
+                    <span class="iconify" data-icon="icon-park-outline:easy" data-width="40" data-height="40" style="color: #e80368;"></span>
+                    <h3><a href="">Easy Navigation</a></h3>
+                </div>
+                </div>
+                <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
+                <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
+                    <span class="iconify" data-icon="bx:bxs-user-check" data-width="40" data-height="40" style="color: #e361ff;"></span>
+                    <h3><a href="">Free Trial</a></h3>
+                </div>
+                </div>
+              
+            </div>
+    
+            </div>
+        </section>
+      </header>
+      <!-- End Features Section -->  
+
         <!--Header starts here-->
       <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
         <div class="container">
@@ -44,27 +88,6 @@
     </nav>  
     <!--Header Ends Here-->
 
-        <!--Feature Starts Here-->
-        <!--Better if makakita ta'g other template here-->
-              <div class="container hero">
-                <div class="row">
-                    <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
-                      <ul>
-                        <li>Keep track of salary</li>
-                        <li>Automatic salary addition/deduction based on attendance</li>
-                        <li>Easy navigation</li>
-                        <li>Free trial for first three months</li>
-                      </ul>
-                    <div
-                        class="col-md-5 col-lg-5 offset-lg-1 offset-xl-0 d-none d-lg-block phone-holder">
-                        <div class="iphone-mockup"><img src="assets/img/iphone.svg" class="device"> <!--Image diri pero wala pakoy idea unsa-->
-                            <div class="screen"></div>
-                        </div>
-                </div>
-            </div>
-        </div>
-        <!--Feature Ends Here-->
-
         <!--Footer Starts Here-->
         <footer class="footer text-center">
           <div class="container">
@@ -82,15 +105,16 @@
                       <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
                       <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
                   </div>
-                  <!-- Footer About Text-->
-                  <div class="col-lg-4">
-                      <h4 class="text-uppercase mb-4">About Freelancer</h4>
-                      <p class="lead mb-0">
-                          Freelance is a free to use, MIT licensed Bootstrap theme created by
-                          <a href="http://startbootstrap.com">Start Bootstrap</a>
-                          .
-                      </p>
-                  </div>
+
+                                      <!-- Footer About Text-->
+                                      <div class="col-lg-4">
+                                        <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                                        <p class="lead mb-0">
+                                            Freelance is a free to use, MIT licensed Bootstrap theme created by
+                                            <a href="http://startbootstrap.com">Start Bootstrap</a>
+                                            .
+                                        </p>
+                                    </div>
               </div>
           </div>
       </footer>
@@ -111,5 +135,15 @@
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Vendor JS Files -->
+        <script src="assets/vendor/aos/aos.js"></script>
+        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+        <script src="assets/vendor/php-email-form/validate.js"></script>
+        <script src="assets/vendor/purecounter/purecounter.js"></script>
+        <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+        <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
     </body>
 </html>
