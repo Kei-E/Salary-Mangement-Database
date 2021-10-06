@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Salary Management Database</title>
+        <title>Salary Man</title>
 
         <!--Header-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
@@ -13,16 +13,19 @@
         <!--     Fonts and icons     -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-        <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+        <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
 
         <!--CSS-->
         {% load static %}
-        <link rel="stylesheet" href="{% static 'css/home.css'%}">
         <link rel="stylesheet" href="{% static 'css/footer.css'%}">
+        <link rel="stylesheet" href="{% static 'css/home.css'%}">
+        <link rel="stylesheet" href="{% static 'css/signinup.css'%}">
     </head>
 
-    <body>
-        <!--Header starts here-->
+    <body id="page-top">
+
+      <!--Header starts here-->
       <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand" href="#page-top">SALARY MAN</a>
@@ -42,20 +45,22 @@
                 <a class="btn btn-light action-button" role="button" href="signup">Sign Up</a>
             </div>
         </div>
-    </nav>  
+      </nav>  
     <!--Header Ends Here-->
-
-        <!-- Sign in Form Starts Here -->
+          
+   
+    <header class="masthead bg-primary text-white text-center">
+          <!-- Sign in  Form -->
         <section class="sign-in">
-            <div class="container">
+            <div class="in">
                 <div class="signin-content">
                     <div class="signin-image">
-                        <figure><img src="images/signin-image.jpg" alt="sing up image"></figure>
+                        <figure><img src="{% static 'images/signin-image.jpg' %}" alt="sing up image"></figure>
                         <a href="#" class="signup-image-link">Create an account</a>
                     </div>
 
                     <div class="signin-form">
-                        <h2 class="form-title">Sign up</h2>
+                        <h2 class="form-title">Sign In</h2>
                         <form method="POST" class="register-form" id="login-form">
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
@@ -73,37 +78,30 @@
                                 <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
                             </div>
                         </form>
-                        <div class="social-login">
-                            <span class="social-label">Or login with</span>
-                            <ul class="socials">
-                                <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
-                                <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
-                                <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>
         </section>
-<!-- Sign in Form Ends Here -->
+      </header>
 
         <!--Footer Starts Here-->
         <footer class="footer text-center">
-            <div class="container">
-                <div class="row">
-                    <!-- Footer Location-->
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">CSIT327 F1-C1</h4>
-                          <p class="mb-0"><small>&copy; 2021-2022 by Cuevas, Shanesha & Engbino, Kaye</small></p>
-                    </div>
-                    <!-- Footer Social Icons-->
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Around the Web</h4>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
-                    </div>
+          <div class="container">
+              <div class="row">
+                  <!-- Footer Location-->
+                  <div class="col-lg-4 mb-5 mb-lg-0">
+                      <h4 class="text-uppercase mb-4">CSIT327 F1-C1</h4>
+                        <p class="mb-0"><small>&copy; 2021-2022 by Cuevas, Shanesha & Engbino, Kaye</small></p>
+                  </div>
+                  <!-- Footer Social Icons-->
+                  <div class="col-lg-4 mb-5 mb-lg-0">
+                      <h4 class="text-uppercase mb-4">Around the Web</h4>
+                      <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
+                      <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
+                      <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
+                      <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
+                  </div>
+
                     <!-- Footer About Text-->
                     <div class="col-lg-4">
                         <h4 class="text-uppercase mb-4">About Freelancer</h4>
@@ -112,29 +110,23 @@
                             <a href="http://startbootstrap.com">Start Bootstrap</a>
                             .
                         </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-          <!--Footer Ends Here-->
-  
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-  
-          <!-- Bootstrap core JS-->
-          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-          <!-- Core theme JS-->
-          <script src="js/scripts.js"></script>
-          <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-          <!-- * *                               SB Forms JS                               * *-->
-          <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-          <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-          <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-        
-        <!--JS-->
+                    </div>                 
+              </div>
+          </div>
+      </footer>
+        <!--Footer Ends Here-->
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="js/main.js"></script>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
 </html>
