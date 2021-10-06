@@ -19,6 +19,8 @@
         <link rel="stylesheet" href="{% static 'css/home.css'%}">
         <link rel="stylesheet" href="{% static 'css/footer.css'%}">
         <link rel="stylesheet" href="{% static 'css/dashboard.css'%}">
+        <link rel="stylesheet" href="{% static 'css/addemployer.css'%}">
+
     </head>
 
     <body>
@@ -172,13 +174,39 @@
                                       <td class="text-center">{{e.employee_id}}</td>
                                       <td class="text-center">{{e.firstname}}</td>
                                       <td class="text-center">{{e.lastname}}</td>
-                                      <td class="text-center"><a href="">UPDATE</a> | <a href="">DELETE</a></td>
+                                      <td class="text-center">
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                            Update
+                                        </button>  
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                ...
+                                                </div>
+                                                <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <a href="">UPDATE</a> | <a href="">DELETE</a>
+                                    </td>
                                   </tr>
                                   {% endfor %}
                               </tbody>
                             </table>
 
-                            <a href="{% url 'salarymanagement:add_employee_view' %}" class="btn btn-primary btn-icon-split">
+                            <a href="{% url 'salarymanagement:add_employer_view' %}" class="btn btn-primary btn-icon-split">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-flag"></i>
                                 </span>
@@ -203,11 +231,70 @@
                                     <td class="text-center">{{e.employer_id}}</td>
                                     <td class="text-center">{{e.firstname}}</td>
                                     <td class="text-center">{{e.lastname}}</td>
-                                    <td class="text-center"><a href="">UPDATE</a> | <a href="">DELETE</a></td>
+                                    <td class="text-center">
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                            Update
+                                        </button>
+                                        
+                                        <button type="submit" class="btn btn-primary" onclick="return confirm('Are you sure you want to delete data?')">Delete</button>
+                                    </td>
                                 </tr>
                                 {% endfor %}
                             </tbody>
                           </table>
+
+                     
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Update Employer</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-detail" action="" method="POST" id="myform">
+                                    {% csrf_token %}
+                                    <h2>EMPLOYER FORM</h2>
+                
+                                    <div class="form-group">
+                                        <div class="form-row form-row-1">
+                                            <label for="first_name">First Name</label>
+                                            <input type="text" name="firstname" id="first_name" class="input-text" required>
+                                        </div>
+                                        <div class="form-row form-row-1">
+                                            <label for="last_name">Last Name</label>
+                                            <input type="text" name="lastname" id="last_name" class="input-text" required>
+                                        </div>
+                                    </div>
+                
+                                    <div class="form-group">
+                                        <select class="form-control form-control-user" id="City" name="city"
+                                        placeholder="City" required>
+                                            <option disabled selected value>City</option>
+                
+                                            {% for c in city %}
+                                            <option value="{{c.city_id}}">{{c.city}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                
+                                    <div class="form-row-last">
+                                        <button type="submit" class="btn btn-primary" onclick="return confirm('Apply changes?')">Update</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
 
                           <a href="{% url 'salarymanagement:add_employer_view' %}" class="btn btn-primary btn-icon-split">
                             <span class="icon text-white-50">

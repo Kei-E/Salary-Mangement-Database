@@ -2,6 +2,7 @@ from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
 from django.views.generic import View
 from .forms import *
+from django.http import JsonResponse, request
 
 # Create your views here.
 class HomeView(View):
@@ -65,24 +66,21 @@ class AddEmployerView(View):
 
 class AddEmployeeView(View):
 	def get(self, request):
-		return render(request, 'addemployee.html')
+		return render(request, 'addemployee.html', {'employers' : Employer.objects.all(), 'city' : City.objects.all()})
 
 	def post(self, request):
 		form = EmployeeForm(request.POST)
 
-		if form.is_valid():
-			fname = request.POST.get("firstname")
-			lname = request.POST.get("lastname")
-			city = request.POST.get("city")
-			age = request.POST.get("age")
-			cnumber = request.POST.get("contact")
-			employer_id = request.POST.get("employer_id")
-			form = Employee(firstname = fname, lastname = lname, city = city, age = age, contact_num = cnumber, employer_id_id = employer_id)
-			form.save()
+		fname = request.POST.get("firstname")
+		lname = request.POST.get("lastname")
+		city = request.POST.get("city")
+		age = request.POST.get("age")
+		cnumber = request.POST.get("contact")
+		employer_id = request.POST.get("employerid")
+		form = Employee(firstname = fname, lastname = lname, city_id_id = city, age = age, contact_num = cnumber, employer_id_id = employer_id)
+		form.save()
 
-			return redirect('salarymanagement:dashboard_view')
-		else:
-			return HttpResponse('not valid')
+		return redirect('salarymanagement:dashboard_view')
 
 class AddSalaryView(View):
 	def get(self, request):

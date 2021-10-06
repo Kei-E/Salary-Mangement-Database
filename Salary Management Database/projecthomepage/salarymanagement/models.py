@@ -26,6 +26,7 @@ class Employee(models.Model):
     city_id = models.ForeignKey(City, on_delete=models.CASCADE)
     age = models.IntegerField()
     contact_num = models.CharField(max_length=20)
+    year_hired = models.DateTimeField(blank=True, null=True)   
 
     class meta:
         db_table = 'tblEmployee'
@@ -37,6 +38,7 @@ class EmployeeAttendace(models.Model):
     hours_late = models.IntegerField()
     days_absent = models.IntegerField()
 
+
 class Salary(models.Model):
     salary_id = models.AutoField(primary_key=True)
     employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE)
@@ -44,3 +46,4 @@ class Salary(models.Model):
 
     class meta:
         db_table = 'tblSalary'
+        

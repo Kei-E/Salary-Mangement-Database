@@ -8,10 +8,11 @@ class EmployerForm(forms.ModelForm):
 
 class EmployeeForm(forms.ModelForm):
     class Meta:
-        models = Employee
-        fields = '__all__'
+        model = Employee
+        fields = ('firstname', 'lastname')
+        
 
 class CityForm(forms.ModelForm):
     class Meta:
-        models = City
+        model = City
         fields = '__all__'
