@@ -21,7 +21,7 @@ class DashboardView(View):
 
 		"""
 		> pass the view to template
-		> may contain 1++ vars
+		> may contain 1/more vars
 		"""
 		context = {
 			'employer': employers,
@@ -29,7 +29,25 @@ class DashboardView(View):
 			'city': city
 		}
 		return render(request,'dashboard.html', context)
-        
+	
+	def post(self, request):
+		if request.method == 'POST':
+			if 'btnUpdateEmployer' in request.POST:
+				print('Update button clicked')
+				employer_id = request.POST.get("employer_id")
+				fname = request.POST.get("firstname")
+				lname = request.POST.get("lastname")
+				city = request.POST.get("city")
+
+				updateEmployer = Employer.objects.filter(employer_id = employer_id).update(firstname = fname, lastname = lname, city_id_id = city)
+				print(updateEmployer)
+				print("Profile Updated")
+			if 'btnDeleteEmployer' in request.POST:
+				employerID = request.POST.get("employer_id")
+				employer = Employer.objects.filter(employer_id = employerID).delete()
+
+		return redirect('salarymanagement:dashboard_view')
+
 class AboutUsView(View):
 	def get(self, request):					
 		return render(request,'aboutus.html')

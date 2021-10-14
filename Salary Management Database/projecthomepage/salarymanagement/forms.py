@@ -4,7 +4,8 @@ from .models import *
 class EmployerForm(forms.ModelForm):
     class Meta:
         model = Employer
-        fields = ('firstname', 'lastname')
+        fields = '__all__'
+        
 
 class EmployeeForm(forms.ModelForm):
     class Meta:
