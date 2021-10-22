@@ -30,20 +30,3 @@ class Employee(models.Model):
 
     class meta:
         db_table = 'tblEmployee'
-
-class EmployeeAttendace(models.Model):
-    employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE)
-    hours_worked = models.IntegerField()
-    overtime = models.IntegerField()
-    hours_late = models.IntegerField()
-    days_absent = models.IntegerField()
-
-
-class Salary(models.Model):
-    salary_id = models.AutoField(primary_key=True)
-    employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE)
-    amount = models.IntegerField()
-
-    class meta:
-        db_table = 'tblSalary'
-        

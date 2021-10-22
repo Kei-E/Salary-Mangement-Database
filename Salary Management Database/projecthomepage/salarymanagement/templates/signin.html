@@ -49,27 +49,35 @@
     <!--Header Ends Here-->
           
    
-    <header class="masthead bg-primary text-white text-center">
+    <header class="masthead bg-primary text-black text-center">
           <!-- Sign in  Form -->
         <section class="sign-in">
             <div class="in">
                 <div class="signin-content">
                     <div class="signin-image">
                         <figure><img src="{% static 'images/signin-image.jpg' %}" alt="sing up image"></figure>
-                        <a href="#" class="signup-image-link">Create an account</a>
+                        <a href="signup" class="signup-image-link">Create an account</a>
                     </div>
 
                     <div class="signin-form">
                         <h2 class="form-title">Sign In</h2>
                         <form method="POST" class="register-form" id="login-form">
+                            {% csrf_token %}
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="your_name" id="your_name" placeholder="Your Name"/>
+                                <input type="text" name="username" id="your_name" placeholder="Username"/>
                             </div>
                             <div class="form-group">
                                 <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="your_pass" id="your_pass" placeholder="Password"/>
+                                <input type="password" name="password" id="your_pass" placeholder="Password"/>
                             </div>
+
+                            <div class="form-group">
+                                {% for message in messages %}
+                                <p>{{message}}</p>
+                                {% endfor %}
+                            </div>
+                            
                             <div class="form-group">
                                 <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
                                 <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
