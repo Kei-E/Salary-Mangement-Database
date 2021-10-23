@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.base import Model
 from django.db.models.deletion import CASCADE
 
 # Create your models here.nPANN
@@ -30,3 +31,8 @@ class Employee(models.Model):
 
     class meta:
         db_table = 'tblEmployee'
+
+class Salary(models.Model):
+    salary_id = models.AutoField(primary_key=True)
+    employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE, null=True)
+    amount = models.IntegerField()

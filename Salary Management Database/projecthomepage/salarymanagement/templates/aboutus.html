@@ -78,13 +78,22 @@
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="feature">Feature</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="aboutus">About Us</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="contactus">Contact Us</a></li>
+
+                    {% if user.is_authenticated %} <!--User is logged in-->
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded">{{user.last_name}}</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="logout">Logout</a></li>    
+
+                    {% else %}
+
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="signin">Sign In</a></li>
                 </ul>
                 
                 <a class="btn btn-light action-button" role="button" href="signup">Sign Up</a>
+
+                {% endif %}
             </div>
         </div>
-    </nav>  
+      </nav>  
     <!--Header Ends Here-->
 
         <!--Footer Starts Here-->

@@ -39,13 +39,22 @@
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="feature">Feature</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="aboutus">About Us</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="contactus">Contact Us</a></li>
+
+                    {% if user.is_authenticated %} <!--User is logged in-->
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded">{{user.last_name}}</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="logout">Logout</a></li>    
+
+                    {% else %}
+
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="signin">Sign In</a></li>
                 </ul>
                 
                 <a class="btn btn-light action-button" role="button" href="signup">Sign Up</a>
+
+                {% endif %}
             </div>
         </div>
-    </nav>  
+      </nav>  
     <!--Header Ends Here-->
                 
         <!--Dashboard's Body Starts Here-->
@@ -141,7 +150,7 @@
           <div class="row">
 
               <!-- Area Chart -->
-              <div class="col-xl-8 col-lg-7">
+              <div class="col-xl-7 col-lg-6">
                   <div class="card shadow mb-4">
                       <!-- Card Header - Dropdown -->
                       <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -390,48 +399,116 @@
                 
             </div>
 
-                    
-                    
+            <div class="data" id="salaries">
+                <table class="table tablesorter ">
+                  <thead class=" text-primary">
+                    <tr>
+                      <th >INVOICE</th>
+                      <th >LASTNAME</th>
+                      <th >AMOUNT</th>
+                      <th >ACTIONS</th>
+                    </tr>
+                  </thead>
 
-                          
-                        
+                  <tbody>
+                      {% for s in salary %}
+                      <tr>
+                          <td class="text-center">{{s.salary_id}}</td>
+                          <td class="text-center">{{s.employee_id.lastname}}</td>
+                          <td class="text-center">{{s.amount}}</td>
+                          <td class="text-center">
+                            <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newModal-{{s.salary_id}}">
+                                    VIEW
+                                </button>
+                                
+                                <button type="submit" name="btnDelete" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-{{s.salary_id}}">DELETE</button>
+                                <td>
+                      </tr>
 
-                      <div class="data" id="salaries">
-                        <table class="table tablesorter ">
-                          <thead class=" text-primary">
-                            <tr>
-                              <th >INVOICE</th>
-                              <th >LASTNAME</th>
-                              <th >AMOUNT</th>
-                              <th >ACTIONS</th>
-                            </tr>
-                          </thead>
-
-                          <tbody>
-                              {% for s in salary %}
-                              <tr>
-                                  <td class="text-center">{{s.salary_id}}</td>
-                                  <td class="text-center">{{s.employee_id.lastname}}</td>
-                                  <td class="text-center">{{s.amount}}</td>
-                                  <td class="text-center"><a href="">UPDATE</a> | <a href="">DELETE</a></td>
-                              </tr>
-                              {% endfor %}
-                          </tbody>
-                        </table>
-
-                        <a href="{% url 'salarymanagement:add_salary_view' %}" class="btn btn-primary btn-icon-split">
-                            <span class="icon text-white-50">
-                                <i class="fas fa-flag"></i>
-                            </span>
-                            <span class="text">Add Record</span>
-                        </a>
-                      </div>
+                       <!-- Modal -->
+            <div class="modal fade" id="newModal-{{s.salary_id}}" tabindex="-1" role="dialog" aria-labelledby="newModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title">View Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                     </div>
-                  </div>
+                    
+                    <form id="updateForm" method="POST" >
+                        {% csrf_token %}
+                        <div class="modal-body">
+                            <input type="text" name="salary_id" value = {{s.salary_id}} hidden>
+                        <div class="row">
+                            <div class = "row">
+                                
+                                <div class = "col-sm-6">
+                                <b style="color:#000000">Last Name:</b>
+                                    <input type="text" class="form-control" id="lastName" placeholder="Last Name"  name="lastname" value ={{s.employee_id.lastname}} readonly>
+                                </div>
+                                <div class = "col-sm-6">
+                                    <b style="color:#000000">Amount:</b>
+                                        <input type="text" class="form-control" id="amount" placeholder="City"  name="amount" value ={{s.amount}}>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                        <div class="modal-footer"> 
+                        <button type="submit" name = "btnUpdateSalary" class="btn btn-primary modalbuttonn">UPDATE</button>                            
+                        <button type="button" class="button btn-secondary modalbuttonn" data-dismiss="modal">CLOSE</button>                          
+                        </div>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+
+            
+            <!-- Modal DELETE-->
+            <div class="modal fade" id="exampleModal-{{s.salary_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-m" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header" style="background-color:#ff0000">
+                        <h5 class="modal-title" id="exampleModalLabel" style="color:#ffffff">DELETE RECORD</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <form id="deleteForm" method="POST" >
+                        {% csrf_token %} 
+                        <div class="modal-body">
+                            <input type="text" name="salary_id" value = {{s.salary_id}} hidden>                       
+                            Are you sure you want to delete this record?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" id = "btnDeleteUser" name = "btnDeleteSalary" class="genric-btn danger circle">YES</button>
+                            <button type="button" class="genric-btn danger-border circle" data-dismiss="modal">NO</button>
+                        </div>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+
+                      {% endfor %}
+                  </tbody>
+                </table>
+                <a href="{% url 'salarymanagement:add_salary_view' %}" class="btn btn-primary btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="fas fa-flag"></i>
+            </span>
+            <span class="text">Add Record</span>
+        </a>
               </div>
+    </div>
+</div>
+
 
               <!-- Pie Chart -->
-              <div class="col-xl-4 col-lg-5">
+              <div class="col-xl-4 col-lg-4">
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div

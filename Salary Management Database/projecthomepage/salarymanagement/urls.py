@@ -14,6 +14,7 @@ urlpatterns = [
     path('dashboard', views.DashboardView.as_view(), name="dashboard_view"),
     path('feature', views.FeatureView.as_view(), name="feature_view"),
     path('home', views.HomeView.as_view(), name="home_view"),
+    path('logout', views.LogoutView.as_view(), name="logout_view"),
     path('signin', views.SignInView.as_view(), name="sign_in_view"),
     path('signup', views.SignUpView.as_view(), name="sign_up_view"),
 ]
